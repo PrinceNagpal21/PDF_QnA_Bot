@@ -1,0 +1,10 @@
+pyyaml
+streamlit
+python-dotenv
+openai
+langchain
+PyPDF2
+faiss-cpu
+langchain_openai
+langchain_community
+slackclient
