@@ -65,3 +65,22 @@ This repository contains the code for Zania's Employee AI Assistant. The assista
 
 2. Upload your PDF files using the sidebar menu in the Streamlit app.
 3. Ask questions based on the content of the uploaded PDFs.
+
+
+## Project Structure
+zania-ai-assistant/
+│
+├── config/
+│   ├── app_config.yaml
+│
+├── src/
+│   ├── read_pdf.py
+│   ├── chunks.py
+│   ├── vectorization.py
+│   └── bot.py
+│
+│
+├── .env
+├── app.py
+├── requirements.txt
+
