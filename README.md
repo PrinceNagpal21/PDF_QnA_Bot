@@ -34,7 +34,7 @@ This repository contains the code for Zania's Employee AI Assistant. The assista
 2. Create and activate a virtual environment:
 
     ```
-    python -m ven venv
+    conda create -n venv
     conda activate venv 
     ```
 
