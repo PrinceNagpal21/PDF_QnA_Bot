@@ -14,29 +14,6 @@ from langchain_openai import ChatOpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 
-# Initialize logger
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-
-# Load environment variables
-env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=env_path)
-os.chdir("D:/Zania")
-config_path = "config/"
-
-# Load configuration file
-with open(config_path + "app_config.yaml", "r") as f:
-    app_config = yaml.load(f, Loader=yaml.SafeLoader)
-
-# Extract configuration details
-embedding_model = app_config["Model"]["embedding_model"]
-modelling = app_config["Model"]["model"]
-temperature = app_config["Model"]["temperature"]
-
-system_role = app_config["Prompts"]["system_role"]
-guidelines = app_config["Prompts"]["guidelines"]
-examples = app_config["Prompts"]["examples"]
-
 def get_conversational_chain():
     """
     Create a conversational chain for question answering based on the provided guidelines and examples.
@@ -107,5 +84,28 @@ def main():
                 st.success("Done")
 
 if __name__ == "__main__":
+    # Initialize logger
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    logger = logging.getLogger(__name__)
+    
+    # Load environment variables
+    env_path = Path('.') / '.env'
+    load_dotenv(dotenv_path=env_path)
+    os.chdir("D:/Zania")
+    config_path = "config/"
+    
+    # Load configuration file
+    with open(config_path + "app_config.yaml", "r") as f:
+        app_config = yaml.load(f, Loader=yaml.SafeLoader)
+    
+    # Extract configuration details
+    embedding_model = app_config["Model"]["embedding_model"]
+    modelling = app_config["Model"]["model"]
+    temperature = app_config["Model"]["temperature"]
+    
+    system_role = app_config["Prompts"]["system_role"]
+    guidelines = app_config["Prompts"]["guidelines"]
+    examples = app_config["Prompts"]["examples"]
+
     logger.info("Starting the Streamlit app")
     main()
